@@ -361,36 +361,39 @@ class IO:
         return student_data
 
 
-# Start of main body
-
-# When the program starts, read the file data into a list of lists (table)
-# Extract the data from the file
+"""
+This is the start of the main body.
+When the program starts, the file data will be read into a list of lists.
+"""
 students = FileProcessor.read_data_from_file(file_name=FILE_NAME, student_data=students)
 
-# Present and Process the data
-while True:
 
-    # Present the menu of choices
+while True:
+    """
+    This while loop will present a menu of choices to a user and ask the user to select a choice of 1,2,3, or 4.
+    
+    If the user selects menu choice 1: the user will input student data to be enrolled in a course
+    If the user selects menu choice 2: the current student names and courses they are enrolled in will be presented.
+    If the user selects menu choice 3: The student names and courses they are enrolled in will be saved to a json file.
+    If the user selects menu choice 4: The program will end.
+    """
+
     IO.output_menu(menu=MENU)
 
     menu_choice = IO.input_menu_choice()
 
-    # Input user data
     if menu_choice == "1":  # This will not work if it is an integer!
         students = IO.input_student_data(student_data=students)
         continue
 
-    # Present the current data
     elif menu_choice == "2":
         IO.output_student_and_course_names(students)
         continue
 
-    # Save the data to a file
     elif menu_choice == "3":
         FileProcessor.write_data_to_file(file_name=FILE_NAME, student_data=students)
         continue
 
-    # Stop the loop
     elif menu_choice == "4":
         break  # out of the loop
     else:
