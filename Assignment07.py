@@ -4,6 +4,7 @@
 # with structured error handling
 # Change Log: (Who, When, What)
 #   IB, 5/27/2024, Created Script
+#   IB, 5/28/2024, Updated Script
 # ------------------------------------------------------------------------------------------ #
 import json
 
@@ -37,15 +38,45 @@ class Person:
     """
 
     def __init__(self, student_first_name: str = '', student_last_name: str = ''):
+          """
+         This function is a constructor.
+
+         ChangeLog: (Who, When, What)
+         IB,5/27/2024,Created function
+         IB,5/28/2024,Added Docstring
+
+         :param student_first_name:
+         :param student_last_name:
+         """
         self.student_first_name = student_first_name
         self.student_last_name = student_last_name
 
     @property
     def student_first_name(self):
+        """
+        This function is for "getting" student_first_name.
+
+        ChangeLog: (Who, When, What)
+        IB,5/27/2024,Created function
+        IB,5/28/2024,Added Docstring
+
+        :return:
+        """
         return self.__student_first_name.title()
 
     @student_first_name.setter
     def student_first_name(self, value: str):
+        """
+        This function is for "setting" student_first_name to add validation
+        and error handling.
+
+        ChangeLog: (Who, When, What)
+        IB,5/27/2024,Created function
+        IB,5/28/2024,Added Docstring
+
+        :param value:
+        :return:
+        """
         if value.isalpha() or value == "":
             self.__student_first_name = value
         else:
@@ -53,16 +84,43 @@ class Person:
 
     @property
     def student_last_name(self):
+        """
+        This function is for "getting" student_last_name.
+
+        ChangeLog: (Who, When, What)
+        IB,5/27/2024,Created function
+        IB,5/28/2024,Added Docstring
+
+        :return:
+        """
         return self.__student_last_name.title()
 
     @student_last_name.setter
     def student_last_name(self, value: str):
+        """
+        This function is for "setting" student_first_name to add validation
+        and error handling.
+
+        ChangeLog: (Who, When, What)
+        IB,5/27/2024,Created function
+        IB,5/28/2024,Added Docstring
+
+        :param value:
+        :return:
+        """
         if value.isalpha() or value == "":
             self.__student_last_name = value
         else:
             raise ValueError("The last name should only contain alphabetic characters")
 
     def __str__(self):
+        """
+        This method returns a string representation of class object.
+
+        ChangeLog: (Who, When, What)
+        IB,5/27/2024,Created function
+        IB,5/28/2024,Added Docstring
+        """
         return f'{self.student_first_name}, {self.student_last_name}'
 
 
@@ -78,21 +136,55 @@ class Student(Person):
     """
 
     def __init__(self, student_first_name: str = '', student_last_name: str = '', course_name: str = ''):
+        """
+        This function is a constructor.
+
+        ChangeLog: (Who, When, What)
+        IB,5/27/2024,Created function
+        IB,5/28/2024,Added Docstring
+
+        :param student_first_name:
+        :param student_last_name:
+        :param course_name:
+        """
         super().__init__(student_first_name=student_first_name, student_last_name=student_last_name)
         self.course_name = course_name
 
     @property
     def course_name(self):
+        """
+        This function is for "getting" course_name.
+
+        :return:
+        """
         return self.__course_name
 
     @course_name.setter
     def course_name(self, value: str):
+        """
+        This function is for "setting" course_name to add validation
+        and error handling.
+
+        ChangeLog: (Who, When, What)
+        IB,5/27/2024,Created function
+        IB,5/28/2024,Added Docstring
+
+        :param value:
+        :return:
+        """
         if value.isalpha() or value == "":
             self.__course_name = value
         else:
             raise ValueError("The course name should only contain alphabetic characters")
 
     def __str__(self):
+        """
+        This method returns a string representation of class object.
+
+        ChangeLog: (Who, When, What)
+        IB,5/27/2024,Created function
+        IB,5/28/2024,Added Docstring
+        """
         return f'{self.student_first_name}, {self.student_last_name}, {self.course_name}'
 
 
