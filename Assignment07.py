@@ -8,7 +8,7 @@
 # ------------------------------------------------------------------------------------------ #
 import json
 
-# Define the Data Constants
+
 MENU: str = '''
 ---- Course Registration Program ----
   Select from the following menu:  
@@ -20,9 +20,9 @@ MENU: str = '''
 '''
 FILE_NAME: str = "Enrollments.json"
 
-# Define the Data Variables
-students: list = []  # a table of student data
-menu_choice: str  # Hold the choice made by the user.
+
+students: list = []  
+menu_choice: str = ""
 
 
 class Person:
@@ -287,9 +287,9 @@ class IO:
 
         :return: None
         """
-        print()  # Adding extra space to make it look nicer.
+        print()  
         print(menu)
-        print()  # Adding extra space to make it look nicer.
+        print()  
 
     @staticmethod
     def input_menu_choice():
@@ -303,10 +303,10 @@ class IO:
         choice = "0"
         try:
             choice = input("Enter your menu choice number: ")
-            if choice not in ("1", "2", "3", "4"):  # Note these are strings
+            if choice not in ("1", "2", "3", "4"):  
                 raise Exception("Please, choose only 1, 2, 3, or 4")
         except Exception as e:
-            IO.output_error_messages(e.__str__())  # Not passing e to avoid the technical message
+            IO.output_error_messages(e.__str__())  
 
         return choice
 
@@ -382,7 +382,7 @@ while True:
 
     menu_choice = IO.input_menu_choice()
 
-    if menu_choice == "1":  # This will not work if it is an integer!
+    if menu_choice == "1":  
         students = IO.input_student_data(student_data=students)
         continue
 
@@ -395,7 +395,7 @@ while True:
         continue
 
     elif menu_choice == "4":
-        break  # out of the loop
+        break  
     else:
         print("Please only choose option 1, 2, or 3")
 
